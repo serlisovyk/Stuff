@@ -67,6 +67,6 @@ https://stuff-client.onrender.com
 
 <br>
 
-<p align="left">cd ../client</p>
+<p align="left">cd client</p>
 <p align="left">npm i</p>
 <p align="left">npm start</p>
