@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { ROUTES } from '../../utils/routes'
 import styles from './Product.module.css'
-import { useCartStore } from '../../state/zustand/useCartStore'
+import { selectAddItemToCart, useCartStore } from '../../state/zustand/useCartStore'
 import { SIZES } from '../../utils/constants'
 
 export default function Product(item) {
@@ -11,7 +11,7 @@ export default function Product(item) {
   const [currentImage, setCurrentImage] = useState()
   const [currentSize, setCurrentSize] = useState()
 
-  const { addItemToCart } = useCartStore()
+  const addItemToCart = useCartStore(selectAddItemToCart)
 
   useEffect(() => {
     setCurrentImage(images[0])

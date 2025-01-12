@@ -1,10 +1,17 @@
-import { useCartStore } from '../../state/zustand/useCartStore'
+import {
+  useCartStore,
+  selectCart,
+  selectAddItemToCart,
+  selectRemoveItemFromCart,
+} from '../../state/zustand/useCartStore'
 import styles from './Cart.module.css'
 import { Link } from 'react-router-dom'
 import { useCart } from '../../hooks/useCart'
 
 export default function Cart() {
-  const { cart, addItemToCart, removeItemFromCart } = useCartStore()
+  const cart = useCartStore(selectCart)
+  const addItemToCart = useCartStore(selectAddItemToCart)
+  const removeItemFromCart = useCartStore(selectRemoveItemFromCart)
 
   const total = useCart(cart)
 

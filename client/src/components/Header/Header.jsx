@@ -4,12 +4,12 @@ import logo from '../../images/logo.svg'
 import styles from './Header.module.css'
 import { ROUTES } from '../../utils/routes'
 import useGetProductsQuery from '../../state/queries/useGetProductsQuery'
-import { useCartStore } from '../../state/zustand/useCartStore'
+import { selectCart, useCartStore } from '../../state/zustand/useCartStore'
 
 export default function Header() {
   const [searchValue, setSearchValue] = useState('')
 
-  const { cart } = useCartStore()
+  const cart = useCartStore(selectCart)
 
   const { products, isLoading } = useGetProductsQuery('', '', searchValue)
 
