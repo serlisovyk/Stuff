@@ -11,22 +11,23 @@ class ProductsService {
 
       const products = await ProductsModel.find(filter)
 
-      if (!products) throw ApiError.notFound('Продукты не найдены')
+      if (!products) throw ApiError.notFound('No products found')
 
       return products
     } catch (err) {
-      throw ApiError.internal('Произошла ошибка при получении продуктов')
+      throw ApiError.internal('An error occurred while receiving products')
     }
   }
+
   async getProductById(id) {
     try {
       const product = await ProductsModel.findById(id)
 
-      if (!product) throw ApiError.badRequest('Такого продукта нет')
+      if (!product) throw ApiError.badRequest('No product found')
 
       return product
     } catch (err) {
-      throw ApiError.internal('Произошла ошибка при получении продукта')
+      throw ApiError.internal('An error occurred while receiving the product')
     }
   }
 }

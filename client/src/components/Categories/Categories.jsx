@@ -3,10 +3,9 @@ import styles from './Categories.module.css'
 import useGetCategoriesQuery from '../../state/queries/useGetCategoriesQuery'
 
 export default function Categories({ title, amount }) {
-  
   const { categories, isLoading } = useGetCategoriesQuery()
 
-  const list = categories?.filter((_, i) => i < amount)
+  const filteredCategories = categories?.filter((_, i) => i < amount)
 
   return (
     <section className={styles.section}>
@@ -15,7 +14,7 @@ export default function Categories({ title, amount }) {
         {isLoading ? (
           <p>Loading...</p>
         ) : (
-          list?.map(({ _id, name, image }) => {
+          filteredCategories?.map(({ _id, name, image }) => {
             return (
               <Link to={`/categories/${name}`} key={_id} className={styles.item}>
                 <div

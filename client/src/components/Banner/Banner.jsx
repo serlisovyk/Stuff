@@ -1,5 +1,4 @@
 import styles from '../../pages/Home/Home.module.css'
-
 import banner from '../../images/banner.png'
 
 export default function Banner() {

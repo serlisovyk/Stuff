@@ -6,11 +6,11 @@ class CategoriesService {
     try {
       const categories = await CategoriesModel.find()
 
-      if (!categories) throw ApiError.internal('Категорий нет')
+      if (!categories) throw ApiError.internal('No categories')
 
       return categories
     } catch (err) {
-      throw ApiError.internal('Ошибка при получении категорий')
+      throw ApiError.internal('Error getting categories')
     }
   }
 }

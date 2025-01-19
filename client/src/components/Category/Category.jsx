@@ -6,7 +6,7 @@ import useGetProductsQuery from '../../state/queries/useGetProductsQuery'
 export default function Category() {
   const { id } = useParams()
 
-  const { products, isLoading } = useGetProductsQuery(id, '')
+  const { products, isLoading } = useGetProductsQuery(id)
 
   return (
     <section className={styles.wrapper}>

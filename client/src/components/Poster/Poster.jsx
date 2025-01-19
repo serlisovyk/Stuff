@@ -1,5 +1,4 @@
 import styles from '../../pages/Home/Home.module.css'
-
 import bg from '../../images/computer.png'
 
 export default function Poster() {

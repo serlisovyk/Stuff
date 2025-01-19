@@ -11,7 +11,7 @@ export default function Header() {
 
   const cart = useCartStore(selectCart)
 
-  const { products, isLoading } = useGetProductsQuery('', '', searchValue)
+  const { products, isLoading } = useGetProductsQuery('', searchValue)
 
   const handleSearch = e => setSearchValue(e.target.value)
 

@@ -6,9 +6,7 @@ export async function getCategories() {
   return data
 }
 
-export async function getProducts(category, productId, searchValue) {
-  if (productId) return (await axios.get(`${BASE_URL}/products/${productId}`)).data
-
+export async function getProducts(category, searchValue) {
   const params = {}
 
   if (category) params.category = category
@@ -16,4 +14,8 @@ export async function getProducts(category, productId, searchValue) {
 
   const { data } = await axios.get(`${BASE_URL}/products`, { params })
   return data
+}
+
+export async function getProduct(productId) {
+  return (await axios.get(`${BASE_URL}/products/${productId}`)).data
 }

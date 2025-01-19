@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom'
 import styles from './Products.module.css'
 
 export default function Products({ title, style = {}, products, amount }) {
-  const list = products?.filter((_, i) => i < amount)
+  const filteredProducts = products?.filter((_, i) => i < amount)
 
   return (
     <section className={styles.products} style={style}>
       {title && <h2>{title}</h2>}
       <div className={styles.list}>
-        {list?.map(({ _id, images, title, categoryName, price }) => (
+        {filteredProducts?.map(({ _id, images, title, categoryName, price }) => (
           <Link
             to={`/products/${_id}`}
             key={_id}
