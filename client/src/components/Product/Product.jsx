@@ -5,7 +5,9 @@ import styles from './Product.module.css'
 import { selectAddItemToCart, useCartStore } from '../../state/zustand/useCartStore'
 import { SIZES } from '../../utils/constants'
 
-export default function Product({ title, price, images, description }) {
+export default function Product(item) {
+  const { title, price, description, images } = item
+
   const [currentImage, setCurrentImage] = useState()
   const [currentSize, setCurrentSize] = useState()
 
