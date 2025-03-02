@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 import styles from './Sidebar.module.css'
-import useGetCategoriesQuery from '../../state/queries/useGetCategoriesQuery'
+import { useGetCategoriesQuery } from '../../state/queries/queries'
 
 export default function Sidebar() {
   const { categories, isLoading } = useGetCategoriesQuery()

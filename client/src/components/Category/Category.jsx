@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom'
 import styles from './Category.module.css'
 import Products from '../Products/Products'
-import useGetProductsQuery from '../../state/queries/useGetProductsQuery'
+import {useGetProductsQuery} from '../../state/queries/queries'
 
 export default function Category() {
   const { id } = useParams()

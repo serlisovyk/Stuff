@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import styles from './Categories.module.css'
-import useGetCategoriesQuery from '../../state/queries/useGetCategoriesQuery'
+import { useGetCategoriesQuery } from '../../state/queries/queries'
 
 export default function Categories({ title, amount }) {
   const { categories, isLoading } = useGetCategoriesQuery()

@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { ROUTES } from '../../utils/routes'
 import styles from './Product.module.css'
 import { selectAddItemToCart, useCartStore } from '../../state/zustand/useCartStore'
-import { SIZES } from '../../utils/constants'
+import { ROUTES, SIZES } from '../../constants/constants'
 
 export default function Product(item) {
   const { title, price, description, images } = item

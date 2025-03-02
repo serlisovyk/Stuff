@@ -2,9 +2,9 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logo from '../../images/logo.svg'
 import styles from './Header.module.css'
-import { ROUTES } from '../../utils/routes'
-import useGetProductsQuery from '../../state/queries/useGetProductsQuery'
 import { selectCart, useCartStore } from '../../state/zustand/useCartStore'
+import { useGetProductsQuery } from '../../state/queries/queries'
+import { ROUTES } from '../../constants/constants'
 
 export default function Header() {
   const [searchValue, setSearchValue] = useState('')
