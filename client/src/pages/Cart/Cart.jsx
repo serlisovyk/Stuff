@@ -17,7 +17,12 @@ export default function Cart() {
 
   const changeQuantity = (item, quantity) => addItemToCart({ ...item, quantity })
 
-  const removeItem = _id => removeItemFromCart(_id)
+  const handlePlus = item => changeQuantity(item, item.quantity + 1)
+
+  const handleMinus = item =>
+    item.quantity > 1
+      ? changeQuantity(item, item.quantity - 1)
+      : removeItemFromCart(item._id)
 
   return (
     <section className={styles.cart}>
@@ -41,16 +46,7 @@ export default function Cart() {
                   </div>
                   <div className={styles.price}>{price}$</div>
                   <div className={styles.quantity}>
-                    <div
-                      className={styles.minus}
-                      onClick={() => {
-                        if (quantity > 1) {
-                          changeQuantity(item, quantity - 1)
-                        } else {
-                          removeItem(item._id)
-                        }
-                      }}
-                    >
+                    <div className={styles.minus} onClick={() => handleMinus(item)}>
                       <svg className="icon">
                         <use
                           xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#minus`}
@@ -58,10 +54,7 @@ export default function Cart() {
                       </svg>
                     </div>
                     <span>{quantity}</span>
-                    <div
-                      className={styles.plus}
-                      onClick={() => changeQuantity(item, quantity + 1)}
-                    >
+                    <div className={styles.plus} onClick={() => handlePlus(item)}>
                       <svg className="icon">
                         <use
                           xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#plus`}
@@ -70,7 +63,10 @@ export default function Cart() {
                     </div>
                   </div>
                   <div className={styles.total}>{price * quantity}$</div>
-                  <div className={styles.close} onClick={() => removeItem(item._id)}>
+                  <div
+                    className={styles.close}
+                    onClick={() => removeItemFromCart(_id)}
+                  >
                     <svg className="icon">
                       <use
                         xlinkHref={`${process.env.PUBLIC_URL}/sprite.svg#close`}
